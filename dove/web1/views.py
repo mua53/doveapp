@@ -13,10 +13,10 @@ def login(request):
 @csrf_exempt
 def signup(request):
     if request.method == 'POST':
-        registrationForm = RegistrationForm(request.POST)
-        username = registrationForm.cleaned_data['username']
-        password = registrationForm.cleaned_data['password']
-        ten = registrationForm.cleaned_data['ten']
+        print(request.POST['username'])
+        username =  request.POST["username"]
+        password = request.POST['password']
+        ten = request.POST['name']
         new_user = Users(username=username, password=password, ten=ten)
         new_user.save()
 
